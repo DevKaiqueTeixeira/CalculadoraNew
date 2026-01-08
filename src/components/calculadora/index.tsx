@@ -4,13 +4,13 @@ import { useState } from 'react'
 export function Calculadora() {
 
     const [inputCalc, setInputCalc] = useState('');
-    const operadores = ["+", "-", "*", "/", "."];
+    const operadores = ["+", "-", "*", "/"];
     const [verifyCalc, setVerifyCalc] = useState(false);
 
     const [n1, setN1] = useState('');
 
     function Calc(numero: number) {
-        alert(verifyCalc)
+        //alert(verifyCalc)
 
         const numeroInput = Number(inputCalc)
         if (numeroInput < 0) {
@@ -18,7 +18,7 @@ export function Calculadora() {
 
         }
 
-        if (verifyCalc === true && !inputCalc.includes("+") && !inputCalc.includes("-") && !inputCalc.includes("/") && !inputCalc.includes("*")) {
+        if (verifyCalc === true && !inputCalc.includes("+") && !inputCalc.includes("-") && !inputCalc.includes("/") && !inputCalc.includes("*") ) {
             setInputCalc("");
             setVerifyCalc(false)
         }
@@ -35,7 +35,7 @@ export function Calculadora() {
 
             const jaTemOperador = operadores.some(op => prev.includes(op));
             const ultimo = prev.slice(-1);
-            const numberInput = Number(inputCalc);
+            
 
             if (!prev && operadores.includes(operator)) {
 
@@ -44,7 +44,8 @@ export function Calculadora() {
 
             if (operadores.includes(ultimo) && operadores.includes(operator)) {
                 return prev;
-            } if (jaTemOperador && operadores.includes(operator)) {
+            }
+             if (jaTemOperador && operadores.includes(operator) ) {
                 return prev;
             }
 
